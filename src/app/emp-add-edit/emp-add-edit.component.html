@@ -1,0 +1,70 @@
+<mat-toolbar color="primary" style="background-color: #47b9ec;">
+    <span>{{data ? 'Edit': 'Add'}} Employee Details</span>
+</mat-toolbar>
+<form [formGroup]="empForm" (ngSubmit)="onSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            
+            <mat-form-field appearance="outline">
+                <mat-label>Employee Name</mat-label>
+                <mat-icon matPrefix class="my-icon">perm_identity</mat-icon>
+                <input matInput type="text" formControlName="name">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Employee Position</mat-label>
+                <mat-icon matPrefix class="my-icon">work_outline</mat-icon>
+                <mat-select formControlName="position">
+                    <mat-option *ngFor="let position of positions" [value]="position">
+                        {{position}}
+                      </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field class="date-custom" appearance="outline">
+                <mat-label>Start Date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="fromDate">
+                <mat-datepicker-toggle [for]="picker" id="picker1"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #picker>
+                    <mat-datepicker-actions>
+                      <div style="width: 100%;">
+                        <button mat-raised-button matDatepickerApply style="position: absolute;top:5px; left: 10px;width:46%;background-color:transparent;color: #47b9ec; border: none;">No date</button>
+                        <button mat-raised-button matDatepickerApply style="position: absolute;top:5px; right:10px;width:46%;background-color: transparent;color: #47b9ec">Today</button>
+                      </div>
+                      
+                      <div style="position:absolute;left: 20px;">
+                        <mat-icon style="color: #47b9ec;" >date_range</mat-icon>
+                        No date
+                      </div>
+                      <button mat-button matDatepickerCancel style="background-color:transparent;color: #47b9ec; border: none;">Cancel</button>
+                      <button mat-raised-button matDatepickerApply style="background-color: #47b9ec;color: #fff">Save</button>
+                    </mat-datepicker-actions>
+                </mat-datepicker>
+              </mat-form-field>
+
+              <span class="arrow">
+                <mat-icon>arrow_right_alt</mat-icon>
+              </span>
+              
+              <mat-form-field class="date-custom" appearance="outline">
+                <mat-label>End Date</mat-label>
+                <input matInput [matDatepicker]="picker2" formControlName="toDate">
+                <mat-datepicker-toggle  id="picker2" [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker touchUi #picker2>
+                    <mat-datepicker-actions>
+                      <button mat-button matDatepickerCancel style="background-color:transparent;color: #47b9ec; border: none;">Cancel</button>
+                      <button mat-raised-button matDatepickerApply style="background-color: #47b9ec;color: #fff">Save</button>
+                    </mat-datepicker-actions>
+                </mat-datepicker>
+              </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions class="action-btns">
+        <button style="background-color:transparent;color: #47b9ec; border: none;" type="button" color="primary" [mat-dialog-close]="false">Cancel</button>
+        <button style="margin: 10px; background-color: #47b9ec;" mat-raised-button color="primary" type="submit">{{data ? 'Update': 'Save'}}</button>
+    </div>
+</form>

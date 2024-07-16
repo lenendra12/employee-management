@@ -1,0 +1,55 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+mat-form-field {
+  width: 100%;
+  margin: auto;
+}
+.main-body {
+  /* max-width: 80%; */
+  /* margin: 20px auto; */
+  overflow: scroll; 
+  height: 100%;
+}
+
+.action-icon:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.plus-icon {
+  width: 70px;
+  height: 70px;
+  color: #47b9ec;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  opacity: 1;
+  font-size: 70px;
+}
+
+.sections-emp > .mat-toolbar-single-row {
+  background-color: #efefef;
+  font-size: 16px;
+  color: #47b9ec ;
+}
+
+.sub-section-emp {
+  padding: 0 11px;
+  margin: 5px;
+  cursor: pointer;
+}
+.sections-emp, h2, p {
+  margin: 0;
+}
+.sections-emp, h2 {
+  font-size: 16px;
+}
+.sections-emp, p {
+  color: grey;
+}
+
+.section {
+  margin: 10px 0;
+}

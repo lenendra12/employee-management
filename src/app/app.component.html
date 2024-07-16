@@ -1,0 +1,40 @@
+<!-- The toolbar of our app -->
+<mat-toolbar color="primary" style="background-color: #47b9ec;">
+ <span>Employee List</span>
+</mat-toolbar>
+
+<!-- The body of our app -->
+<div class="main-body">
+  <div class="sections-emp">
+    <mat-toolbar>Current employees</mat-toolbar>
+  </div>
+  <div class="section">
+    <section class="sub-section-emp" *ngFor="let employee of currentEmployees">
+      <div style="display:inline-block; width:80%;" (click)="editEmployee(employee)">
+        <h2>{{employee.name}}</h2>
+        <p>{{employee.position}}</p>
+        <p>From {{employee.fromDate}}</p>
+      </div>
+      <div style="display:inline-block; float:right; color:#d21f1f;">
+        <mat-icon (click)="deleteEmployee(employee)">delete</mat-icon>
+      </div>
+    </section>
+  </div>
+  
+  <div class="sections-emp">
+    <mat-toolbar>Previous employees</mat-toolbar>
+  </div>
+  <div class="section">
+    <section class="sub-section-emp" *ngFor="let employee of previousEmployees">
+      <div style="display:inline-block; width:80%;" (click)="editEmployee(employee)">
+        <h2>{{employee.name}}</h2>
+        <p>{{employee.position}}</p>
+        <p>{{employee.fromDate}} - {{employee.toDate}}</p>
+      </div>
+      <div style="display:inline-block; float:right; color:#d21f1f;">
+        <mat-icon (click)="deleteEmployee(employee)">delete</mat-icon>
+      </div>
+    </section>
+  </div>
+  <mat-icon class="plus-icon" (click)="openAddEditEmployeeDialog()">add_box</mat-icon>
+</div>
